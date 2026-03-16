@@ -1,27 +1,18 @@
 # Arcana
 
-Zig multi-provider LLM client library.
+A Zig LLM agent SDK, ported from Charm's [Fantasy](https://github.com/charmbracelet/fantasy).
 
-## Features
+Multi-provider, multi-model, one API. Comptime schema generation for typed tools. Native HTTP via `std.http.Client`.
 
-- Multi-provider support: Anthropic, OpenAI, OpenRouter, Ollama
-- Structured message types (system, user, assistant, tool)
-- Tool/function calling with JSON schema
-- Agent abstraction with conversation management
-- Streaming support (planned)
+## Providers
 
-## Usage
-
-```zig
-const arcana = @import("arcana");
-
-var provider = arcana.providers.anthropic.init(allocator, .{
-    .api_key = key,
-});
-var model = try provider.languageModel("claude-sonnet-4-6");
-var result = try model.generate(.{ .prompt = "Hello" });
-```
+- Anthropic
+- OpenAI
+- OpenRouter
+- Azure OpenAI
+- Google (Gemini / Vertex AI)
+- Ollama (local models)
 
 ## License
 
-Apache-2.0
+Apache 2.0 — same as the upstream Fantasy project.
