@@ -1,0 +1,7 @@
+name: Version Bump
+on:
+  push:
+    branches: [main]
+jobs:
+  bump:
+    uses: svge-ai/.github/.github/workflows/zig-version-bump.yml@main

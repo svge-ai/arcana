@@ -1,0 +1,19 @@
+name: Cut Release
+on:
+  workflow_dispatch:
+    inputs:
+      bump-type:
+        description: "Version bump (none/patch/minor/major)"
+        required: false
+        default: "none"
+        type: choice
+        options:
+          - none
+          - patch
+          - minor
+          - major
+jobs:
+  release:
+    uses: svge-ai/.github/.github/workflows/zig-release.yml@main
+    with:
+      bump-type: ${{ github.event.inputs.bump-type }}
