@@ -1,0 +1,17 @@
+name: Manual Version Bump
+on:
+  workflow_dispatch:
+    inputs:
+      bump-type:
+        description: "Version bump (patch/minor/major)"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+jobs:
+  bump:
+    uses: svge-ai/.github/.github/workflows/zig-manual-bump.yml@main
+    with:
+      bump-type: ${{ github.event.inputs.bump-type }}
